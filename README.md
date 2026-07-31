@@ -207,18 +207,8 @@ military-asset-system/
 - **Node.js 18+** — [nodejs.org](https://nodejs.org/)
 - **Git** (optional)
 
-### 1. Clone or Open the Project
 
-```bash
-# If using git
-git clone <your-repo-url>
-cd military-asset-system
-
-# Or just navigate to the project folder
-cd C:\Users\CED-9\.gemini\antigravity\scratch\military-asset-system
-```
-
-### 2. Backend Setup
+### 1. Backend Setup
 
 ```powershell
 cd backend
@@ -237,7 +227,7 @@ python -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload
 
 > The database will be automatically created and seeded with demo data on first launch.
 
-### 3. Frontend Setup
+### 2. Frontend Setup
 
 ```powershell
 cd frontend
@@ -249,7 +239,7 @@ npm install
 npm run dev
 ```
 
-### 4. Open the App
+### 3. Open the App
 
 | Service | URL |
 |---------|-----|
