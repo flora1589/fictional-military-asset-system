@@ -2,6 +2,7 @@ from typing import List, Dict, Any
 from sqlalchemy.orm import Session
 from app.models.asset import Asset
 from app.models.mission import Mission
+
 RECOMMENDATION_RULES: Dict[str, Dict[str, Any]] = {
     "Medical": {
         "preferred_types": ["Ambulance", "Medical Truck", "Mobile Field Hospital"],
@@ -40,12 +41,13 @@ RECOMMENDATION_RULES: Dict[str, Dict[str, Any]] = {
         "description": "Standard instructional vehicle configuration for cadet maneuvers."
     }
 }
+
 def recommend_assets_for_mission(db: Session, mission_id: int) -> Dict[str, Any]:
     mission = db.query(Mission).filter(Mission.id == mission_id).first()
     if not mission:
         return {"error": "Mission not found", "recommendations": []}
     
-        rule = RECOMMENDATION_RULES.get(mission.mission_type, {
+    rule = RECOMMENDATION_RULES.get(mission.mission_type, {
         "preferred_types": ["Light Utility Vehicle", "Transport Truck"],
         "min_fuel": 30.0,
         "min_battery": 30.0,
